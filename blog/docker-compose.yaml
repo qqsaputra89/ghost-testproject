@@ -15,7 +15,7 @@ services:
         target: /var/lib/postgresql/data
 
   ghost-production:
-    image: ghost:${GHOST_IMAGE_TAG:-latest}
+    image: ghost
     environment:
       database__client: mysql
       database__connection__host: postgresql
