@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   postgresql:
-    image: postgres:${POSTGRESQL_IMAGE_TAG=-latest}
+    image: postgres
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root1234}
       MYSQL_USER: ghost
@@ -11,7 +11,7 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${MYSQL_HOST_PATH=~/postgresql_data}
+        source: ${MYSQL_HOST_PATH=-~/postgresql-data}
         target: /var/lib/mysql
 
   ghost-production:
@@ -34,7 +34,7 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${GHOST_HOST_PATH:-~/ghost_data}
+        source: ${GHOST_HOST_PATH:-~/ghost-data}
         target: /var/lib/ghost/content
 
   nginx-webservices:
@@ -45,6 +45,6 @@ services:
       - "${NGINX_HTTPS_PORT:-443}:443"
     volumes:
       - type: bind
-        source: ${NGINX_HOST_PATH:-~/nginx_webservices}
+        source: ${NGINX_HOST_PATH:-~/nginx-webservices}
         target: /etc/nginx/conf.d/
 
