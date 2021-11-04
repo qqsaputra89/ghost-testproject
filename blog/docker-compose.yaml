@@ -12,7 +12,7 @@ services:
     volumes:
       - type: bind
         source: ${MYSQL_HOST_PATH=-~/postgresql-data}
-        target: /var/lib/mysql
+        target: /var/lib/postgresql/data
 
   ghost-production:
     image: ghost:${GHOST_IMAGE_TAG:-latest}
