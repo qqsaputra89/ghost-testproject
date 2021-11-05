@@ -6,21 +6,17 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-rootdb}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-P@ssw0rdr00tdb}
-      POSTGRES_DB: ghost_production
+      POSTGRES_DB: ghostdb
     restart: always
     volumes:
       - type: bind
         source: ~/host-vol/postgresql-data
         target: /var/lib/postgresql/data
 
-  ghost-production:
+  ghost:
     image: ghost
     environment:
-      database__client: mysql
-      database__connection__host: postgresql
-      database__connection__database: ghost_production
-      database__connection__user: ${POSTGRES_USER:-rootdb}
-      database__connection__password: ${POSTGRES_PASSWORD:-P@ssw0rdr00tdb}
+      database_url: postgres://rootdb:P@ssw0rdr00tdb@postgresql:5432/ghostdb
       mail__transport: ${MAIL_TRANSPORT:-Direct}
       mail__options__service: ${MAIL_SERVICE}
       mail__options__host: ${MAIL_HOST}
@@ -36,7 +32,7 @@ services:
         source: ~/host-vol/ghost-data
         target: /var/lib/ghost/content
 
-  nginx-webservices:
+  nginx:
     image: nginx
     restart: always
     ports:
