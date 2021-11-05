@@ -10,7 +10,7 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${POSTGRES_HOST_PATH=-~/host-vol/postgresql-data}
+        source: ~/host-vol/postgresql-data
         target: /var/lib/postgresql/data
 
   ghost-production:
@@ -33,7 +33,7 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${GHOST_HOST_PATH:-~/host-vol/ghost-data}
+        source: ~/host-vol/ghost-data
         target: /var/lib/ghost/content
 
   nginx-webservices:
@@ -44,6 +44,6 @@ services:
       - "${NGINX_HTTPS_PORT:-443}:443"
     volumes:
       - type: bind
-        source: ${NGINX_HOST_PATH:-~/host-vol/nginx-webservices}
+        source: ~/host-vol/nginx-webservices
         target: /etc/nginx/conf.d/
 
