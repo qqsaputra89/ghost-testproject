@@ -39,7 +39,10 @@ fi
 echo "Creating host folders..."
 mkdir -p $GHOST_HOST_PATH
 mkdir -p $POSTGRES_HOST_PATH
-cp -r nginx/ $NGINX_HOST_PATH
+if [[ ! -d $NGINX_HOST_PATH ]]
+then
+  # Copy default nginx configuration
+  cp -r nginx/ $NGINX_HOST_PATH
 fi    
 echo "memulai install..."
 pushd webapps/ > /dev/null
