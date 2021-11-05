@@ -44,6 +44,6 @@ services:
       - "${NGINX_HTTPS_PORT:-443}:443"
     volumes:
       - type: bind
-        source: ~/host-vol/nginx-webservices
+        source: ~/host-vol/nginx-webservicess
         target: /etc/nginx/conf.d/
 
