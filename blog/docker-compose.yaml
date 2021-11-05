@@ -14,7 +14,7 @@ services:
         target: /var/lib/mysql
 
   ghost:
-    image: ghost:${GHOST_IMAGE_TAG:-3.2.0-alpine}
+    image: ghost
     environment:
       url: ${BLOG_URL:-http://127.0.0.1}
       DATABASE_URL: postgres://rootdb:rootdb123@postgresql:5432/ghostdb
