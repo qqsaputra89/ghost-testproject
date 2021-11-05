@@ -7,6 +7,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-rootdb}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-P@ssw0rdr00tdb}
       POSTGRES_DB: ghostdb
+    ports:
+      - 5432:5432
     restart: always
     volumes:
       - type: bind
