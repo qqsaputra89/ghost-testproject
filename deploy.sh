@@ -16,14 +16,14 @@ then
 fi
 
 # Loading environment variables
-echo "Sourcing $ENV_FILE"
+echo "Membaca file konfigurasi : $ENV_FILE"
 source $ENV_FILE
 
 echo "Ghost-CMS akan di install dengan konfigurasi berikut:"
-echo "MySQL user password: $MYSQL_PASSWORD"
-echo "MySQL root password: $MYSQL_ROOT_PASSWORD"
+echo "POSTGRESQL superuser password: $POSTGRES_USER"
+echo "POSTGRESQL superuser password: $POSTGRES_PASSWORD"
+echo "POSTGRESQL host data folder: $POSTGRES_HOST_PATH"
 echo "Ghost host data folder: $GHOST_HOST_PATH"
-echo "MySQL host data folder: $MYSQL_HOST_PATH"
 echo "Nginx host config folder: $NGINX_HOST_PATH"
 echo "HTTP port: $NGINX_HTTP_PORT"
 echo "HTTPS port: $NGINX_HTTPS_PORT"
@@ -44,6 +44,6 @@ then
   # Copy default nginx configuration
   cp -r nginx/ $NGINX_HOST_PATH
 fi    
-echo "Deploying..."
-pushd blog/ > /dev/null
+echo "memulai install..."
+pushd webapps/ > /dev/null
 docker-compose up -d
