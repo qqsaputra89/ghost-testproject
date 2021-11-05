@@ -10,8 +10,8 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${MYSQL_HOST_PATH:-~/mariadb_data}
-        target: /var/lib/mysql
+        source: ${POSTGRES_HOST_PATH:-~/psql_data}
+        target: var/lib/postgresql/data
 
   ghost:
     image: ghost
