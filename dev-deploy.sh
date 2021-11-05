@@ -43,7 +43,7 @@ mkdir -p $POSTGRES_HOST_PATH
 if [[ ! -d $NGINX_HOST_PATH ]]
 then
   # Copy default nginx configuration
-  cp -r nginx/ $NGINX_HOST_PATH
+  cp -r dev-nginx/ $NGINX_HOST_PATH
 fi    
 echo "Deploying..."
 pushd dev-blog/ > /dev/null
