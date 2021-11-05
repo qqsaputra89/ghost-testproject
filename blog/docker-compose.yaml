@@ -11,7 +11,7 @@ services:
     volumes:
       - type: bind
         source: ${POSTGRES_HOST_PATH:-~/psql_data}
-        target: /var/lib/postgresql/
+        target: /var/lib/postgresql/data
 
   ghost:
     image: ghost
