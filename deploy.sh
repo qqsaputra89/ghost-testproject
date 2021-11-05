@@ -2,7 +2,7 @@
 
 if [[ $# != 1 ]]
 then
-  echo 'his script takes exactly 1 argument'
+  echo 'This script takes exactly 1 argument'
   echo 'Usage: ./deploy $ENV_FILE_PATH'
   exit 1
 fi
